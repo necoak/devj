@@ -5,7 +5,7 @@
 
 ### リンク
 
-[AbstractFactoryパターン](./AbstractFactory/README)
+[AbstractFactoryパターン](./abstfactory/README)
 
 ### 一覧
 ||種類|パターン名|説明|ポイント|
