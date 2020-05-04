@@ -1,4 +1,4 @@
-[一覧へ戻る](../README)
+[一覧へ戻る](../README.md)
 
 # AbstractFactory
 * 関連するインスタンス群をまとめて生成する
