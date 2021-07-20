@@ -40,9 +40,16 @@ public class Main {
         }
         long lap3Time = System.nanoTime();
 
+        // add head
+        for (int i = 0; i < collectionSize; i++) {
+            list.add(0, Integer.toString(i));
+        }
+        long lap4Time = System.nanoTime();
+
         System.out.println(String.format("末尾追加[nano sec]: %,d", (lap1Time -startTime)));
         System.out.println(String.format("要素探索[nano sec]: %,d", (lap2Time -lap1Time)));
         System.out.println(String.format("要素置換[nano sec]: %,d", (lap3Time -lap2Time)));
+        System.out.println(String.format("先頭追加[nano sec]: %,d", (lap4Time -lap3Time)));
 
     }
 
