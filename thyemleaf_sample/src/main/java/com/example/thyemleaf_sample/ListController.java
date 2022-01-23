@@ -28,10 +28,10 @@ public class ListController {
 
         // product2
         Product product2 = new Product();
-        product1.setName("なし");
-        product1.setPrice(200);
-        product1.setCost(90);
-        product1.setDescription("福島産の幸水です");
+        product2.setName("なし");
+        product2.setPrice(200);
+        product2.setCost(90);
+        product2.setDescription("福島産の幸水です");
 
         products.add(product1);
         products.add(product2);

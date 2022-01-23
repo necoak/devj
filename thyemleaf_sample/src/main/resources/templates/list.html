@@ -15,11 +15,21 @@
             <th>説明</th>
         </tr>
         <tr th:each="product, productStat : ${products}">
-            <td th:text="${productStat.index}"></td>
-            <td th:text="${product.name}"></td>
-            <td th:text="${product.price}"></td>
-            <td th:text="${product.cost}"></td>
-            <td th:text="${product.description}"></td>
+            <td>
+                <input type="text" name="index" th:value="${productStat.index}">
+            </td>
+            <td>
+                <input type="text" name="name" th:value="${product.name}">
+            </td>
+            <td>
+                <input type="number" th:value="${product.price}">
+            </td>
+            <td>
+                <input type="number" th:value="${product.cost}">
+            </td>
+            <td>
+                <input type="text" th:value="${product.description}">
+            </td>
         </tr>
     </table>
 
