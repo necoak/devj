@@ -6,5 +6,86 @@
 </head>
 <body>
 <h1 th:text="${message}"></h1>
+<form method="post">
+    <lable></lable>
+    <input></input>
+
+    <h3>全体価格</h3>
+    <label>許容最小-全体価格[円]</label>
+    <input></input>
+    <label>許容最大-全体価格[円]</label>
+    <input></input>
+    <label>最小単位-全体価格[円]</label>
+    <input></input>
+
+    <h3>加重平均単金</h3>
+    <label>許容最小-加重平均単金[円/人時]</label>
+    <input></input>
+    <label>許容最大-加重平均単金[円/人時]</label>
+    <input></input>
+    <label>最小単位-加重平均単金[円/人時]</label>
+    <input></input>
+
+    <h3>総工数</h3>
+    <label>許容最小-総工数[人時]</label>
+    <input></input>
+    <label>許容最大-総工数[人時]</label>
+    <input></input>
+    <label>最小単位-総工数[人時]</label>
+    <input></input>
+
+    <h3>総工数</h3>
+    <label>許容最小-総工数[人時]</label>
+    <input></input>
+    <label>許容最大-総工数[人時]</label>
+    <input></input>
+    <label>最小単位-総工数[人時]</label>
+    <input></input>
+
+    <h3>一人月時間設定</h3>
+    <label>許容最小-人月時間[時間/一人月]</label>
+    <input type="number" value="150"></input>
+    <label>許容最大-人月時間[時間/一人月]</label>
+    <input type="number" value="200"></input>
+    <label>最小単位-人月時間[時間/一人月]</label>
+    <input type="number" value="10"></input>
+    <label>最小単位-人月[人月]</label>
+    <input type="number" value="0.001"></input>
+
+
+
+
+    <h3>個別単金</h3>
+    <table>
+        <tr>
+            <th>担当者</th>
+            <th>単金[円/人時]</th>
+            <th>原価[円/人時]</th>
+            <th>工数[人時]</th>
+        </tr>
+        <tr th:each="card, cardStat : *{cardList}">		<!-- ① -->
+            <td>
+                <input type="text" th:field="*{cardList[__${cardStat.index}__].name}">
+            </td>
+            <td>
+                <input type="text" th:field="*{cardList[__${cardStat.index}__].unitprice}">
+            </td>
+            <td>
+                <input type="text" th:field="*{cardList[__${cardStat.index}__].rawprice}">
+            </td>
+            <td>
+                <input type="text" th:field="*{cardList[__${cardStat.index}__].manhours}">
+            </td>
+            <td>
+                <button type="submit" name="remove" th:value="${cardStat.index}">削除</button>
+            </td>
+        </tr>
+    </table>
+    <button type="submit" name="add">追加</button>
+
+    <table>
+
+    </table>
+</form>
 </body>
 </html>
