@@ -14,10 +14,10 @@ import java.util.List;
 public class ListController {
 
     @GetMapping("/list")
-    public String list(Model model) {
+    public String list(@ModelAttribute ProductList productList,Model model) {
 
-        ProductList productList  = new ProductList();
-        List<Product> products = new ArrayList<Product>();
+        //ProductList productList  = new ProductList();
+        //List<Product> products = new ArrayList<Product>();
 
         // procuct1
         Product product1 = new Product();
@@ -33,31 +33,38 @@ public class ListController {
         product2.setCost(90);
         product2.setDescription("福島産の幸水です");
 
-        products.add(product1);
-        products.add(product2);
+        productList.add(product1);
+        productList.add(product2);
 
-        model.addAttribute("products" , products);
+        //products.add(product1);
+        //products.add(product2);
+
+        //model.addAttribute("products" , products);
+
         return "list";
     }
 
     @PostMapping("/list")
-    public String shoList(@ModelAttribute ProductList productList){
+    public String showList(
+            @ModelAttribute ProductList productList){
         return "showList";
     }
 
     @PostMapping(value = "/list/edit", params="add")
-    public String addList(@ModelAttribute List<Product> products, Model model){
-        products.add(new Product());
+    public String addList(@ModelAttribute ArrayList<Product> products, Model model){
+        // products.add(new Product());
+
+        model.addAttribute("products", products);
         return  "list";
     }
 
-    /*
+
     @PostMapping(value = "/list/edit", params="remove")
     public String removeList(
-            @ModelAttribute ProductList productList, Model model, HttpServletRequest request){
+            @ModelAttribute ArrayList<Product> products, Model model, HttpServletRequest request){
         int index = Integer.valueOf(request.getParameter("remove"));
-        productList.removeList(index);
+        products.remove(index);
         return "list";
     }
-*/
+
 }
