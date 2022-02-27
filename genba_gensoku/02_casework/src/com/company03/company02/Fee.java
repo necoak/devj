@@ -9,15 +9,12 @@ public class Fee {
     }
 
     public Integer getFee(){
-        Integer fee;
-        if (isChild()){
-            fee = childFee();
-        } else if (isSenior()) {
-            fee = seniorFee();
-        } else {
-            fee =  adultFee();
-        }
-        return fee;
+
+        if (isChild())
+            return childFee();
+        if (isSenior())
+            return seniorFee();
+        return adultFee();
     }
 
     private Integer adultFee() { return baseFee;}
