@@ -8,5 +8,8 @@ public class CalcFeeMain {
 
         Fee fee02 = new Fee("adult");
         System.out.println(fee02);
+
+        Fee fee03 = new Fee("senior");
+        System.out.println(fee03);
     }
 }
