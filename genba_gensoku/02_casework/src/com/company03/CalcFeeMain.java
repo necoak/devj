@@ -1,4 +1,4 @@
-package com.company03.company02;
+package com.company03;
 
 public class CalcFeeMain {
     public static void main(String[] args) {
@@ -11,5 +11,8 @@ public class CalcFeeMain {
 
         Fee fee03 = new Fee("senior");
         System.out.println(fee03);
+
+        Fee fee04 = new Fee("baby");
+        System.out.println(fee04);
     }
 }

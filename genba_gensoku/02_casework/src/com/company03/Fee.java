@@ -1,4 +1,4 @@
-package com.company03.company02;
+package com.company03;
 
 public class Fee {
     private String customerType;
@@ -10,6 +10,8 @@ public class Fee {
 
     public Integer getFee(){
 
+        if (isBaby())
+            return babyFee();
         if (isChild())
             return childFee();
         if (isSenior())
@@ -17,19 +19,34 @@ public class Fee {
         return adultFee();
     }
 
-    private Integer adultFee() { return baseFee;}
+    private Integer adultFee() {
+        return baseFee;
+    }
 
     private Boolean isChild() {
         return this.customerType.equals("child");
     }
 
-    private Boolean isSenior() {return this.customerType.equals("senior"); }
+    private Boolean isSenior() {
+        return this.customerType.equals("senior");
+    }
 
     private Integer childFee() {
         return (int)Math.round(baseFee * 0.5);
     }
 
-    private Integer seniorFee() { return (int)Math.round(baseFee * 0.7); }
+    private Integer seniorFee() {
+        return (int)Math.round(baseFee * 0.7);
+    }
+
+    private boolean isBaby() {
+        return this.customerType.equals("baby");
+    }
+
+    private Integer babyFee() {
+        return 0;
+    }
+
 
     @Override
     public String toString() {
