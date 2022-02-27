@@ -10,10 +10,18 @@ public class Fee {
 
     public Integer getFee(){
         Integer fee = baseFee;
-        if (this.customerType.equals("child")) {
-            fee = (int)Math.round(baseFee * 0.5);
+        if (isChild()){
+            fee = childFee();
         }
         return fee;
+    }
+
+    private Boolean isChild() {
+        return this.customerType.equals("child");
+    }
+
+    private Integer childFee() {
+        return (int)Math.round(baseFee * 0.5);
     }
 
     @Override
