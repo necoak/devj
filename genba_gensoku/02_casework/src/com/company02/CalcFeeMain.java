@@ -1,4 +1,4 @@
-package com.company02.company;
+package com.company02;
 
 public class CalcFeeMain {
     public static void main(String[] args) {
