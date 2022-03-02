@@ -9,19 +9,19 @@ flowchart TD
     beginpoint --apply--> examination
     
     examination --approve--> approved
-    examination --sendback--> remand
+    examination --sendback--> rejected
     
-    remand --reapply--> examination
-    remand --withdraw--> close
+    rejected --reapply--> examination
+    rejected --withdraw--> close
     
-    approved --start--> execution
+    approved --start--> executing
     approved --withdraw --> close
     
-    execution --suspend--> pending
-    execution --finish--> close
+    executing --suspend--> pending
+    executing --finish--> close
     
     pending --cancel--> close
-    pending --restart--> execution
+    pending --restart--> executing
     
     close --> endpoint
 ```
