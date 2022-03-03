@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1 th:text="${message}"></h1>
-<form method="post">
+<form th:action="@{/calc}" method="post">
     <lable></lable>
     <input></input>
 
@@ -63,29 +63,24 @@
             <th>原価[円/人時]</th>
             <th>工数[人時]</th>
         </tr>
-        <tr th:each="card, cardStat : *{cardList}">		<!-- ① -->
+        <tr th:object="${member01}">
             <td>
-                <input type="text" th:field="*{cardList[__${cardStat.index}__].name}">
+                <input type="text" th:field="*{name}">
             </td>
             <td>
-                <input type="text" th:field="*{cardList[__${cardStat.index}__].unitprice}">
+                <input type="text" th:field="*{unitprice}">
             </td>
             <td>
-                <input type="text" th:field="*{cardList[__${cardStat.index}__].rawprice}">
+                <input type="text" th:field="*{rawunitprice}">
             </td>
             <td>
-                <input type="text" th:field="*{cardList[__${cardStat.index}__].manhours}">
-            </td>
-            <td>
-                <button type="submit" name="remove" th:value="${cardStat.index}">削除</button>
+                <input type="text" th:field="*{manhour}">
             </td>
         </tr>
     </table>
-    <button type="submit" name="add">追加</button>
 
-    <table>
+    <input type="submit" value="submit" />
 
-    </table>
 </form>
 </body>
 </html>
