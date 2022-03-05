@@ -5,6 +5,16 @@
     <title>Hello Thymeleaf</title>
 </head>
 <body>
-<p th:text="${totalSettings.allowable_min_price}"></p>
+<div th:object="${settings}">
+    <p th:text="*{allowable_min_price}"></p>
+    <p th:text="*{allowable_max_price}"></p>
+    <p th:text="*{totalprice_unitvalue}"></p>
+
+    <p th:text="*{allowable_min_wav_unitprice}"></p>
+    <p th:text="*{allowable_max_wav_unitprice}"></p>
+    <p th:text="*{wav_unitprice_unitvalue}"></p>
+
+
+</div>
 result
 </body>

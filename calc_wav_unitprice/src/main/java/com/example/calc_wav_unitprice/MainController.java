@@ -14,12 +14,12 @@ public class MainController {
         model.addAttribute("message", "hello");
         model.addAttribute("member01", new Member());
 
-        model.addAttribute("total_settings", new TotalSettings());
+        model.addAttribute("settings", new Settings());
         return "input";
     }
 
     @PostMapping("/calc")
-    public String calc(Model model, @ModelAttribute TotalSettings totalSettings){
+    public String calc(Model model, @ModelAttribute Settings totalSettings){
         return "result";
     }
 

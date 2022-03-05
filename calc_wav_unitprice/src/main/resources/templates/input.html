@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1 th:text="${message}"></h1>
-<form th:action="@{/calc}" th:object="${total_settings}" method="post">
+<form th:action="@{/calc}" th:object="${settings}" method="post">
     <lable></lable>
     <input></input>
 
@@ -16,15 +16,15 @@
     <label>許容最大-全体価格[円]</label>
     <input type="number" th:field="*{allowable_max_price}"></input>
     <label>最小単位-全体価格[円]</label>
-    <input type="number" th:field="*{unit_price}"></input>
+    <input type="number" th:field="*{totalprice_unitvalue}"></input>
 
     <h3>加重平均単金</h3>
     <label>許容最小-加重平均単金[円/人時]</label>
-    <input></input>
+    <input type="number" th:field="*{allowable_min_wav_unitprice}"></input>
     <label>許容最大-加重平均単金[円/人時]</label>
-    <input></input>
+    <input type="number" th:field="*{allowable_max_wav_unitprice}"></input>
     <label>最小単位-加重平均単金[円/人時]</label>
-    <input></input>
+    <input type="number" th:field="*{wav_unitprice_unitvalue}"></input>
 
     <h3>総工数</h3>
     <label>許容最小-総工数[人時]</label>
