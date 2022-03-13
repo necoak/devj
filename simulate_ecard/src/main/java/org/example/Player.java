@@ -18,12 +18,14 @@ public class Player {
         this.cards = Cards.createSlaveSide();
     }
 
-    public void battle(Player player2) {
+    public boolean battle(Player player2) {
         Card myChoiceCard = choiceCard();
         Card vsChoiceCard = player2.choiceCard();
+        boolean ret = true;
 
         if ((myChoiceCard instanceof CivilCard) && (vsChoiceCard instanceof CivilCard)){
             System.out.println("player1[Civil]  vs player2[Civil] : DRAW :  player1+-0 vs plyaer2+-0");
+            ret = false;
         } else if ((myChoiceCard instanceof CivilCard) && (vsChoiceCard instanceof EmperorCard)) {
             System.out.println("player1[Civil]  vs player2[Emperor] : Lose : player1-1 vs plyaer2+1");
             this.wallet.minus(1);
@@ -50,6 +52,8 @@ public class Player {
             this.wallet.plus(3);
             player2.wallet.minus(3);
         }
+        System.out.println(" --> " + this.walletToString() + " vs " + player2.walletToString());
+        return ret;
     }
 
     private Card choiceCard() {
@@ -59,5 +63,9 @@ public class Player {
 
     public String walletToString(){
         return wallet.toString();
+    }
+
+    public boolean isBroken(){
+        return this.wallet.isEmpty();
     }
 }

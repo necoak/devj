@@ -33,7 +33,8 @@ public class Game {
 
     private void play1(){
         for(int k=0; k < 5; k++) {
-            this.player1.battle(this.player2);
+            boolean result = this.player1.battle(this.player2);
+            if (result) break;
         }
         System.out.println("--------------------------------");
     }

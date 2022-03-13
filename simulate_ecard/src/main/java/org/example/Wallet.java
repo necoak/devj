@@ -9,12 +9,23 @@ public class Wallet {
         return wallet;
     }
 
+    public static Wallet create(Integer initCoin) {
+        Wallet wallet = new Wallet();
+        wallet.money = initCoin;
+        return wallet;
+    }
+
     public void plus(int pointcnt) {
         this.money += pointcnt;
     }
 
     public void minus(int pointcnt){
         this.money -= pointcnt;
+    }
+
+    public boolean isEmpty(){
+        if (this.money <= 0) return true;
+        return false;
     }
 
     @Override
