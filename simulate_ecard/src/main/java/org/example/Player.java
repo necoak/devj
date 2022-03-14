@@ -68,4 +68,6 @@ public class Player {
     public boolean isBroken(){
         return this.wallet.isEmpty();
     }
+
+    public Integer getMoney(){ return this.wallet.toInt();}
 }

@@ -28,6 +28,10 @@ public class Wallet {
         return false;
     }
 
+    public Integer toInt() {
+        return this.money;
+    }
+
     @Override
     public String toString(){
         return money.toString();
