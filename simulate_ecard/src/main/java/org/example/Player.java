@@ -40,17 +40,17 @@ public class Player {
             this.wallet.plus(1);
             player2.wallet.minus(1);
         } else if ((myChoiceCard instanceof EmperorCard) && (vsChoiceCard instanceof SlaveCard)){
-            System.out.println("player1[Emperor]  vs player2[Slave] : Lose : player1-3 vs plyaer2+3");
-            this.wallet.minus(3);
-            player2.wallet.plus(3);
+            System.out.println("player1[Emperor]  vs player2[Slave] : Lose : player1-3 vs plyaer2+5");
+            this.wallet.minus(5);
+            player2.wallet.plus(5);
         } else if ((myChoiceCard instanceof SlaveCard) && (vsChoiceCard instanceof CivilCard)) {
             System.out.println("player1[Slave]  vs player2[Civil] : Lose : player1-1 vs plyaer2+1");
             this.wallet.minus(1);
             player2.wallet.plus(1);
         } else if ((myChoiceCard instanceof SlaveCard) && (vsChoiceCard instanceof EmperorCard)) {
-            System.out.println("player1[Slave] vs player2[Emperor] : Win : player1+3 vs plyaer2-3");
-            this.wallet.plus(3);
-            player2.wallet.minus(3);
+            System.out.println("player1[Slave] vs player2[Emperor] : Win : player1+5 vs plyaer2-5");
+            this.wallet.plus(5);
+            player2.wallet.minus(5);
         }
         System.out.println(" --> " + this.walletToString() + " vs " + player2.walletToString());
         return ret;
