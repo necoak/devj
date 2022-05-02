@@ -16,6 +16,11 @@ public class HomeController {
 
     record TaskItem(String id, String task,  String deadline, boolean done){}
     private List<TaskItem> taskItems = new ArrayList<>();
+    private final TaskListDao dao;
+
+    HomeController(TaskListDao dao) {
+        this.dao = dao;
+    }
 
     @GetMapping(value="/hello")
     String hello(Model model){
@@ -28,13 +33,15 @@ public class HomeController {
                    @RequestParam("deadline") String deadline){
         String id = UUID.randomUUID().toString().substring(0,8);
         TaskItem item = new TaskItem(id, task, deadline, false);
-        taskItems.add(item);
+        // taskItems.add(item);
+        dao.add(item);
         return "redirect:/list";
     }
 
     @GetMapping(value="/list")
     String listItems(Model model){
-        model.addAttribute("taskList", taskItems);
+        //model.addAttribute("taskList", taskItems);
+        model.addAttribute("taskList", dao.findAll());
         return "home";
     }
 }
