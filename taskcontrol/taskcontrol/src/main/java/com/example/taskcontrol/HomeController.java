@@ -44,4 +44,10 @@ public class HomeController {
         model.addAttribute("taskList", dao.findAll());
         return "home";
     }
+
+    @GetMapping(value="/delete")
+    String deleteItem(@RequestParam("id") String id) {
+        dao.delete(id);
+        return "redirect:/list";
+    }
 }
