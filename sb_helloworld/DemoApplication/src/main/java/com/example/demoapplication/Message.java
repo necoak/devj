@@ -1,15 +1,9 @@
 package com.example.demoapplication;
 
-import jakarta.persistence.*;
-
 import java.io.Serializable;
 
-@Table(name = "messages")
-@Entity
 public class Message implements Serializable{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String text;
 

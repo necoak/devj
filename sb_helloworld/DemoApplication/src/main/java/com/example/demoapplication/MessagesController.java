@@ -14,15 +14,16 @@ import java.util.List;
 public class MessagesController {
 
     @Autowired
-    MessageRepository messageRepository;
+    MessageMapper messageMapper;
 
     @RequestMapping(method = RequestMethod.GET)
     public List<Message> getMessages(){
-        return messageRepository.findAll();
+        return messageMapper.findAll();
     }
 
     @RequestMapping(method = RequestMethod.POST)
     public Message postMessage(@RequestBody Message message){
-        return messageRepository.save(message);
+        messageMapper.create(message);
+        return message;
     }
 }
